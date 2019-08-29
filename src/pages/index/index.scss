@@ -1,0 +1,27 @@
+page {
+  background-color: #f0f0f0;
+}
+
+.index {
+  .scroll-view {
+    height: 100vh;
+    padding-top: 60Px;
+  }
+  .card-container {
+    padding: 16Px 16Px 0;
+    min-height: 100vh;
+  }
+}
+.at-modal {
+  .at-modal__container {
+      border-radius: 0;
+      width: 310Px;
+  }
+  .at-modal-content {
+      padding: 16Px 24Px;
+      .at-input--disabled {
+        opacity: 1;
+      }
+  }
+}
+
