@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "topfun",
-  "description": "今日热榜-热门信息聚合网站",
+  "projectname": "moreink",
+  "description": "陌印-区块链人才社区",
   "appid": "wx3e31d77cd781a3f6",
   "setting": {
     "urlCheck": true,

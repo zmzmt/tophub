@@ -1,8 +1,5 @@
 import Taro from '@tarojs/taro'
-// import { fetchToken } from '../common/store';
-// import aesEncrypt from './encrypt';
 
-// const BASE_PATH = 'http://dmj3:8083/moreink';  
 const BASE_PATH = 'https://api.moreink.net';
 
 function getQueryString(option) {
@@ -50,9 +47,7 @@ export default class Api {
   static request(path, options = {}) {
     const url = `${BASE_PATH}${path}${getQueryString(options)}`;
     return new Promise(resolve => {
-      if (path !== '/user/addlocal' && path !== '/user/toremote' && path !== '/user/sinkes') {
-        Taro.showLoading({ title: '正在加载' });
-      }
+      Taro.showLoading({ title: '正在加载' });
       // Taro.showNavigationBarLoading()
       Taro.request({
         url: url,

@@ -62,3 +62,11 @@ export function weLogin(params) {
     type: 'JSON'
   });
 }
+
+// // 修改默认银行账号
+// export function modifyBankNo(params) {
+//   return Api.request(`/v1/bank/account/${params.bankAccountNo}`, {
+//     method: 'PUT',
+//     body: params
+//   });
+// }
