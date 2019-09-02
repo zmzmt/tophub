@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
-import 'taro-ui/dist/style/index.scss';
 import { Provider } from '@tarojs/mobx'
 import Index from './pages/index'
+
 import globalStore from './store/global'
 
 import './app.scss'

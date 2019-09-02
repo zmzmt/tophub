@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 
-const BASE_PATH = 'https://api.moreink.net';
+const BASE_PATH = 'https://www.printf520.com:8080';
 
 function getQueryString(option) {
   const { query = {} } = option;
@@ -56,7 +56,6 @@ export default class Api {
           'Content-Type': 'application/json'
         },
         timeout: 12000,
-        // params: (options.params ? options.params : ''),
         data: options.body
       }).then(res => {
         if (res.statusCode === 200 && res.data.code !== 9010) {
@@ -64,12 +63,11 @@ export default class Api {
           // Taro.hideNavigationBarLoading()
           resolve(res.data);
         } else {
-          const route = encodeURIComponent(getCurrentPageUrlWithArgs());
-          // 跳转到登录页
-          Taro.redirectTo({
-            url: `/pages/authorize/phone/index?from=${route}`
-            // url: `/pages/login/index?from=${route}`
-          });
+          // const route = encodeURIComponent(getCurrentPageUrlWithArgs());
+          // // 跳转到登录页
+          // Taro.redirectTo({
+          //   url: `/pages/authorize/phone/index?from=${route}`
+          // });
         }
       })
     })

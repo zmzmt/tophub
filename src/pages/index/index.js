@@ -1,37 +1,76 @@
 import Taro, {Component} from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
-import { observer, inject } from '@tarojs/mobx'
+import {View} from '@tarojs/components'
+import { AtTabs, AtTabsPane } from 'taro-ui'
+import '@tarojs/async-await'
 import './index.scss'
+import { queryAllType } from '../../services/public'
+import { saveState, fetchState } from '../../common/store';
 
-@inject('globalStore')
-@observer
 export default class Index extends Component {
 
   config = {
     navigationBarTitleText: '主页'
   };
 
-  refresh = false;
-
   constructor(props) {
     super(props);
     this.state = {
-      // list: []
+      list: [],
+      current: 0
     }
   }
 
-  componentDidMount() {
-    // this.getData(1);
+  async componentDidMount() {
+    const list = await fetchState('tab-list');
+    if (list) {
+      this.setState({
+        list
+      })
+    } else {
+      this.getData();
+    }
+  }
+
+  onShareAppMessage = () => {
+    // return {
+    //   title: '陌上寻师，印刻于链',
+    //   path: '/pages/index/index'
+    // }
+  }
+
+  getData() {
+    queryAllType()
+      .then((res) => {
+        saveState('tab-list', res.Data);
+        this.setState({
+          list: res.Data
+        })
+      });
+  }
+
+  handleClick(index) {
+    this.setState({
+      current: index
+    })
   }
 
   render() {
+    const { list, current } = this.state;
     return (
       <View className='index'>
-        index
-        <AtButton>按钮文案</AtButton>
-        <AtButton type='primary'>按钮文案</AtButton>
-        <AtButton type='secondary'>按钮文案</AtButton>
+        <AtTabs
+          current={current}
+          animated={false}
+          scroll
+          tabList={list}
+          onClick={this.handleClick.bind(this)}
+        >
+          {list.map((item, key) => (
+            <AtTabsPane index={key} key={item.id}>
+              <View>{JSON.stringify(item)}</View>
+            </AtTabsPane>
+          ))}
+        </AtTabs>
       </View>
     )
   }

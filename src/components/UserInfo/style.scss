@@ -1,0 +1,125 @@
+.modal-wraper {
+    position: fixed;
+    z-index: 1;
+}
+
+.close-button{
+    text-align: right;
+}
+.info-title{
+    width: 70Px;
+    height: 70Px;
+    border-radius: 35Px;
+    margin: 0 auto 16Px;
+    position: relative;
+    overflow: hidden;
+}
+.info-title-text {
+    font-size: 12Px;
+    color: #fff;
+    width: 70Px;
+    height: 70Px;
+    text-align: center;
+    line-height: 70Px;
+    position: absolute;
+    top: 0Px;
+    left: 0Px;
+    background-color: rgba(0, 0, 0, 0.86);
+}
+.info-title-img {
+    width: 70Px;
+    height: 70Px;
+    border: 1Px solid #000;
+    border-radius: 35Px;
+}
+.user-info {
+    padding: 0 4Px;
+    max-height: 50vh;
+    overflow-y: scroll;
+    // View {
+    //     width: 100%;
+    //     height: 44Px;
+    //     border-bottom: 1Px solid #f0f0f0;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: space-between;
+    //     font-size: 14Px;
+    // }
+    View {
+        padding: 12Px 0;
+        width: 100%;
+        border-bottom: 1Px solid #f0f0f0;
+        display: flex;
+        align-items: flex-start;
+        font-size: 14Px;
+    }
+    Text:first-child {
+        min-width: 70Px;
+    }
+    .empty{
+        color: #bcbcbc;
+    }
+}
+.edit-info{
+    input{
+        font-size: 14Px;
+    }
+    font-size: 14Px;
+    .input-wraper{
+        position: relative;
+        border-bottom:0.5Px solid #F0F0F0;
+
+        .input{
+            // margin-top:2Px;
+            border:none;
+            outline: none;
+        }
+
+        .input-disabled {
+            background-color: rgba(102,102,102,0.1);
+            padding-left: 12Px;
+            color: #000;
+            border-bottom: 1px solid #e0e0e0;
+        }
+    }
+    .verify-text{
+        position: absolute;
+        right:0;
+        top:50%;
+        font-size:12Px;
+        font-weight:600;
+        color:rgba(58,206,177,1);
+    }
+    .at-input__children::after {
+        content: none;
+    }
+}
+
+.operate{
+    margin-top: 80Px;
+    width:100%;
+    // height:44Px;
+    text-align: center;
+    font-size:14Px;
+    font-weight:400;
+    line-height:44Px;
+    .operate-submit {
+        background-color: #000;
+        color: white;
+        display: block;
+    }
+    .operate-edit {
+        margin: 0 24Px;
+        background-color: #000;
+        color: white;
+        display: block;
+    }
+    .operate-quit {
+        color: black;
+        display: block;
+        margin-bottom: 12Px;
+    }
+}
+.operate.first {
+    margin-top: 56Px;
+}
