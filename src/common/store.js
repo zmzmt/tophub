@@ -5,7 +5,6 @@ const TOKEN_KEY = 'token_key';
 
 // 暂时将数据存在storage中
 export function saveState(key = TEMP_STATE_KEY, state) {
-  console.log('vvv', state);
   Taro.setStorageSync(key, JSON.stringify(state));
 }
 

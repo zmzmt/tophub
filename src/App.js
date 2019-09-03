@@ -24,7 +24,7 @@ class App extends Component {
     },
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#F1F1F1',
+      navigationBarBackgroundColor: '#FFF',
       navigationBarTitleText: '今日热榜',
       navigationBarTextStyle: 'black'
       // enablePullDownRefresh: true

@@ -1,8 +1,17 @@
 page {
-  background-color: #f0f0f0;
+  background-color: #fff;
 }
 
 .index {
-  // index
+  // index style
+  .at-tabs__header {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+  }
+
+  .at-tabs-pane {
+    padding-top: 48Px;
+  }
 }
 

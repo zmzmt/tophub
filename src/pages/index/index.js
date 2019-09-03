@@ -5,6 +5,7 @@ import '@tarojs/async-await'
 import './index.scss'
 import { queryAllType } from '../../services/public'
 import { saveState, fetchState } from '../../common/store';
+import List from '../../components/List';
 
 export default class Index extends Component {
 
@@ -16,7 +17,7 @@ export default class Index extends Component {
     super(props);
     this.state = {
       list: [],
-      current: 0
+      currentIndex: 0
     }
   }
 
@@ -50,24 +51,24 @@ export default class Index extends Component {
 
   handleClick(index) {
     this.setState({
-      current: index
-    })
+      currentIndex: index
+    });
   }
 
   render() {
-    const { list, current } = this.state;
+    const { list, currentIndex } = this.state;
     return (
       <View className='index'>
         <AtTabs
-          current={current}
+          current={currentIndex}
           animated={false}
           scroll
           tabList={list}
           onClick={this.handleClick.bind(this)}
         >
-          {list.map((item, key) => (
-            <AtTabsPane index={key} key={item.id}>
-              <View>{JSON.stringify(item)}</View>
+          {list.map((item, index) => (
+            <AtTabsPane current={currentIndex} index={index} key={index}>
+              {currentIndex === index ? <List tid={item.id} title={item.title} /> : '加载中'}
             </AtTabsPane>
           ))}
         </AtTabs>
